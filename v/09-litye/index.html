@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>09 Литьё — «Золотой Меркурий»</title>
+<link rel="stylesheet" href="../../assets/base.css">
+<script src="../../assets/season.js"></script>
+<style>
+:root{--ink:#090908;--y:#f6eb55;--deep:#b9a816;--paper:#efede4;--dim:#93917f}
+body{background:var(--ink);color:var(--paper);font:400 17px/1.55 Onest,sans-serif}
+::selection{background:var(--y);color:var(--ink)}
+.hero{position:relative;min-height:100svh;overflow:hidden;display:flex;flex-direction:column}
+/* molten gold poured over the top edge; drips stretch, slow and freeze */
+.melt{position:absolute;inset:0 0 auto;height:62%;filter:url(#goo)}
+.melt .pool{position:absolute;inset:0 0 auto;height:96px;background:linear-gradient(180deg,#fff7a6,var(--y) 40%,var(--deep))}
+.melt i{position:absolute;top:60px;width:var(--w);height:var(--h);left:var(--x);border-radius:0 0 999px 999px;background:linear-gradient(90deg,var(--deep),var(--y) 35%,#fffbd0 50%,var(--y) 65%,var(--deep));transform-origin:top;animation:drip var(--t) cubic-bezier(.55,0,.2,1) both}
+.melt i::after{content:"";position:absolute;left:50%;bottom:calc(var(--w)*-.35);width:calc(var(--w)*1.35);aspect-ratio:1;translate:-50% 0;border-radius:50%;background:radial-gradient(circle at 40% 35%,#fffbd0,var(--y) 40%,var(--deep))}
+@keyframes drip{from{transform:scaleY(.05)}to{transform:none}}
+.nav{position:relative;z-index:2;display:flex;align-items:center;gap:34px;padding:22px clamp(18px,4vw,60px)}
+.nav img{height:32px;width:auto;filter:invert(1)}
+.nav ul{display:flex;gap:26px;list-style:none;margin:0 auto 0 0;padding:0;font-size:15px;color:var(--ink)}
+.nav ul a{text-decoration:none;font-weight:500}.nav ul a:hover{text-decoration:underline;text-underline-offset:4px}
+.btn{display:inline-flex;align-items:center;padding:17px 30px;background:var(--y);color:var(--ink);font:600 16px/1 Onest;text-decoration:none;border-radius:999px;transition:transform .25s cubic-bezier(.16,1,.3,1),box-shadow .25s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 14px 40px -14px rgba(246,235,85,.7)}
+.btn.line{background:none;color:var(--paper);box-shadow:inset 0 0 0 1px #3a3930}
+.nav .btn{background:var(--ink);color:var(--y);padding:12px 20px;font-size:15px;white-space:nowrap}
+.copy{position:relative;z-index:2;margin-top:auto;padding:0 clamp(18px,4vw,60px) 52px;display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:end}
+h1{font:900 clamp(52px,8.6vw,150px)/.86 Geologica,sans-serif;letter-spacing:-.05em;margin:0}
+h1 span{color:var(--y)}
+.side p{margin:0 0 26px;color:var(--dim);max-width:36ch;font-size:clamp(16px,1.3vw,19px)}
+.side b{color:var(--paper);font-weight:500}
+.row{display:flex;gap:10px;flex-wrap:wrap}
+@media (max-width:900px){.nav ul{display:none}.copy{grid-template-columns:1fr;padding-top:42vh}.melt{height:30%}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="goo"><feGaussianBlur in="SourceGraphic" stdDeviation="9"/><feColorMatrix values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 22 -9"/></filter></svg>
+<main>
+<section class="hero">
+ <div class="melt" aria-hidden="true"><div class="pool"></div></div>
+ <header class="nav">
+  <img src="../../assets/tpp-logo-white.png" alt="ТПП Краснодарского края">
+  <ul><li><a href="#">О конкурсе</a></li><li><a href="#">Номинации</a></li><li><a href="#">Этапы</a></li><li><a href="#">Новости</a></li><li><a href="#">Контакты</a></li></ul>
+  <a class="btn only-open" href="#">Подать заявку</a><a class="btn only-closed" href="#">Итоги 2025</a>
+ </header>
+ <div class="copy">
+  <h1>Пробу ставит <span>рынок.</span> Награду — Кубань</h1>
+  <div class="side">
+   <p class="only-open">«Золотой Меркурий» — национальная премия в области предпринимательской деятельности. Региональный этап: <b>приём до 15 марта</b>, осталось <b data-days></b> дн., участие бесплатное.</p>
+   <p class="only-closed">Региональный этап по итогам 2025 года завершён: <b>187 заявок</b>, победителей наградили <b>17 апреля</b>. Их заявки ушли на федеральный этап.</p>
+   <div class="row only-open"><a class="btn" href="#">Подать заявку</a><a class="btn line" href="#">Номинации</a></div>
+   <div class="row only-closed"><a class="btn" href="#">Победители 2025</a><a class="btn line" href="#">Новости</a></div>
+  </div>
+ </div>
+</section>
+</main>
+<script>
+// drips: deterministic widths/lengths so screenshots repeat
+const m=document.querySelector('.melt');let x=-2,k=7;
+while(x<102){k=(k*9301+49297)%233280;const r=k/233280;const w=18+r*46,h=40+Math.pow(r,1.6)*380;
+ const i=document.createElement('i');i.style.cssText=`--x:${x}%;--w:${w}px;--h:${h}px;--t:${2.2+r*2.6}s`;m.append(i);x+=3+r*6}
+</script>
+</body>
+</html>

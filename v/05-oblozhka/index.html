@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>05 Обложка — «Золотой Меркурий»</title>
+<link rel="stylesheet" href="../../assets/base.css">
+<script src="../../assets/season.js"></script>
+<style>
+:root{--y:#f6eb55;--ink:#111;--soft:#3d3a14}
+body{background:var(--y);color:var(--ink);font:400 17px/1.5 Onest,sans-serif}
+::selection{background:var(--ink);color:var(--y)}
+.cover{position:relative;min-height:100svh;overflow:hidden;display:grid;grid-template-rows:auto auto 1fr auto}
+.nav{position:relative;z-index:3;display:flex;align-items:center;gap:30px;padding:20px clamp(18px,3.5vw,56px);font-size:15px;border-bottom:2px solid var(--ink)}
+.nav .issue{font-weight:700;font-variant-numeric:tabular-nums}
+.nav ul{display:flex;gap:24px;list-style:none;margin:0 auto 0 0;padding:0}
+.nav ul a{text-decoration:none}.nav ul a:hover{text-decoration:underline;text-underline-offset:4px}
+.btn{display:inline-flex;align-items:center;padding:16px 28px;background:var(--ink);color:var(--y);font:600 16px/1 Onest;text-decoration:none;border-radius:999px;transition:transform .25s cubic-bezier(.16,1,.3,1)}
+.btn:hover{transform:translateY(-2px) rotate(-1deg)}
+.btn.line{background:none;color:var(--ink);box-shadow:inset 0 0 0 2px var(--ink)}
+.nav .btn{padding:11px 20px;font-size:15px;white-space:nowrap}
+/* masthead runs edge to edge, the photo overlaps its lower half like a newsstand cover */
+.mast{position:relative;z-index:1;margin:0;padding:0 clamp(10px,2vw,30px);font:400 clamp(64px,9.4vw,190px)/.8 'Yeseva One',serif;letter-spacing:-.03em;white-space:nowrap;text-align:center}
+.photo{position:absolute;z-index:2;right:clamp(0px,4vw,60px);bottom:0;width:min(52vw,760px);height:78%;background:url(../../assets/winner-woman.jpg) 78% 20%/cover;-webkit-mask:linear-gradient(180deg,transparent 0,#000 14%);mask:linear-gradient(180deg,transparent 0,#000 14%)}
+.lines{position:relative;z-index:3;align-self:center;padding:24px clamp(18px,3.5vw,56px);max-width:540px;display:grid;gap:22px}
+.lines h1{font:800 clamp(30px,3vw,46px)/1.02 Onest;letter-spacing:-.03em;margin:0}
+.lines p{margin:0;font-size:18px;max-width:34ch}
+.cl{border-top:2px solid var(--ink);padding-top:12px;font:700 20px/1.2 Onest}
+.cl span{display:block;font:400 15px/1.4 Onest;color:var(--soft)}
+.row{display:flex;gap:10px;flex-wrap:wrap}
+.foot{position:relative;z-index:3;display:flex;justify-content:space-between;gap:20px;padding:14px clamp(18px,3.5vw,56px);border-top:2px solid var(--ink);font-size:14px;background:var(--y)}
+.credit{position:absolute;z-index:3;right:clamp(10px,4vw,70px);bottom:64px;font-size:12px;color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.6)}
+@media (max-width:900px){.nav ul,.nav .issue{display:none}.nav .btn{margin-left:auto}.mast{white-space:normal;font-size:16vw;line-height:.86;padding-top:12px}.cover{display:flex;flex-direction:column;overflow:visible}.photo{position:relative;right:auto;width:100%;height:62vh;order:3;-webkit-mask:none;mask:none}.lines{max-width:none;order:2}.credit{display:none}.foot{order:4}.foot span:nth-child(2){display:none}}
+</style>
+</head>
+<body>
+<main class="cover">
+ <header class="nav">
+  <span class="issue">№ 2026 · Краснодарский край</span>
+  <ul><li><a href="#">О конкурсе</a></li><li><a href="#">Номинации</a></li><li><a href="#">Этапы</a></li><li><a href="#">Новости</a></li><li><a href="#">Контакты</a></li></ul>
+  <a class="btn only-open" href="#">Подать заявку</a><a class="btn line only-closed" href="#">Итоги 2025</a>
+ </header>
+ <p class="mast" aria-hidden="true">Золотой Меркурий</p>
+ <div class="photo" role="img" aria-label="Лауреат конкурса с наградой «Золотой Меркурий»"></div>
+ <section class="lines">
+  <h1>Деловой конкурс Кубани ищет героя следующей обложки</h1>
+  <div class="cl only-open">До 15 марта<span>приём заявок, осталось <b data-days></b> дн. Участие бесплатное</span></div>
+  <div class="cl only-closed">187 заявок<span>рекорд регионального этапа по итогам 2025 года</span></div>
+  <div class="cl">13 номинаций<span>МСП, экспортёры и семейный бизнес</span></div>
+  <div class="cl">Федеральный этап<span>заявки победителей края уходят на федеральный этап</span></div>
+  <div class="row only-open"><a class="btn" href="#">Подать заявку</a><a class="btn line" href="#">Условия</a></div>
+  <div class="row only-closed"><a class="btn" href="#">Победители 2025</a><a class="btn line" href="#">Новости</a></div>
+ </section>
+ <span class="credit">Фото: церемония регионального этапа</span>
+ <footer class="foot"><span>Национальная премия в области предпринимательской деятельности</span><span>ТПП Краснодарского края</span></footer>
+</main>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>03 Табло — «Золотой Меркурий»</title>
+<link rel="stylesheet" href="../../assets/base.css">
+<script src="../../assets/season.js"></script>
+<style>
+:root{--board:#141413;--cell:#1f1f1d;--gold:#f6eb55;--paper:#ecebe3;--dim:#7d7b72;--line:#2c2c29}
+body{background:var(--board);color:var(--paper);font:400 17px/1.5 Onest,sans-serif}
+::selection{background:var(--gold);color:var(--board)}
+.nav{display:flex;align-items:center;gap:36px;padding:24px clamp(16px,3.5vw,56px);border-bottom:1px solid var(--line)}
+.nav img{height:32px;width:auto}
+.nav ul{display:flex;gap:26px;list-style:none;margin:0 auto 0 0;padding:0;font-size:15px}
+.nav ul a{text-decoration:none;opacity:.75}.nav ul a:hover{opacity:1}
+.clock{font:500 15px/1 'Martian Mono',monospace;color:var(--gold);font-variant-numeric:tabular-nums}
+.hero{padding:44px clamp(16px,3.5vw,56px) 40px;min-height:calc(100svh - 81px);display:flex;flex-direction:column;gap:34px}
+.head{display:flex;justify-content:space-between;align-items:end;gap:32px;flex-wrap:wrap}
+h1{font:800 clamp(40px,5.6vw,88px)/.92 Geologica,sans-serif;letter-spacing:-.04em;margin:0;max-width:13ch}
+h1 em{font-style:normal;color:var(--gold)}
+.aside{max-width:36ch;color:var(--dim);margin:0}
+.aside b{color:var(--paper);font-weight:500}
+/* split-flap board */
+.board{border:1px solid var(--line);border-radius:6px;overflow:hidden;background:#0d0d0c}
+.board table{width:100%;border-collapse:collapse;font:500 clamp(13px,1.15vw,17px)/1 'Martian Mono',monospace;text-transform:uppercase}
+.board th{font:500 11px/1 'Martian Mono';letter-spacing:.12em;color:var(--dim);text-align:left;padding:14px 16px;border-bottom:1px solid var(--line)}
+.board td{padding:9px 16px;border-bottom:1px solid #191918;white-space:nowrap}
+.board tr:last-child td{border-bottom:0}
+.flap{display:inline-flex;gap:3px}
+.flap i{font-style:normal;display:inline-grid;place-items:center;width:1.25em;height:1.7em;background:var(--cell);border-radius:2px;color:var(--gold);position:relative;box-shadow:inset 0 -1px 0 rgba(0,0,0,.6)}
+.flap i::after{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:rgba(0,0,0,.65)}
+.flap.w i{color:var(--paper)}
+.st{color:#0d0d0c;background:var(--gold);padding:6px 10px;border-radius:2px;font-weight:600}
+.st.off{background:#3a3a36;color:var(--paper)}
+.foot{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.btn{display:inline-flex;align-items:center;padding:17px 30px;background:var(--gold);color:#0d0d0c;font:600 16px/1 Onest;text-decoration:none;border-radius:4px;transition:transform .25s cubic-bezier(.16,1,.3,1),background .25s}
+.btn:hover{transform:translateY(-2px);background:#fff48a}
+.btn.line{background:none;color:var(--paper);box-shadow:inset 0 0 0 1px var(--line)}
+.nav .btn{padding:12px 20px;font-size:15px;white-space:nowrap}
+.foot p{margin:0 0 0 auto;color:var(--dim);font-size:15px}
+@media (max-width:900px){.nav ul,.clock{display:none}.board td:nth-child(2),.board th:nth-child(2){display:none}.board{overflow-x:auto}.foot p{margin:0}}
+</style>
+</head>
+<body>
+<header class="nav">
+ <img src="../../assets/tpp-logo-white.png" alt="ТПП Краснодарского края">
+ <ul><li><a href="#">О конкурсе</a></li><li><a href="#">Номинации</a></li><li><a href="#">Этапы</a></li><li><a href="#">Новости</a></li><li><a href="#">Контакты</a></li></ul>
+ <span class="clock" id="clock">00:00</span>
+ <a class="btn only-open" href="#">Подать заявку</a><a class="btn line only-closed" href="#">Итоги 2025</a>
+</header>
+<main>
+<section class="hero">
+ <div class="head">
+  <h1>Рейс на <em>федеральный этап</em> отправляется из Краснодара</h1>
+  <p class="aside only-open">«Золотой Меркурий» — национальная премия в области предпринимательской деятельности. <b>Участие бесплатное.</b> Приём заявок до 15 марта, осталось <b data-days></b> дн.</p>
+  <p class="aside only-closed">Приём заявок по итогам 2025 года завершён: <b>187 заявок, рекорд.</b> Победителей наградили 17 апреля в Краснодаре.</p>
+ </div>
+ <div class="board" role="table" aria-label="Номинации конкурса">
+  <table>
+   <thead><tr><th>Номинация</th><th>Сфера</th><th>Направление</th><th>Статус</th></tr></thead>
+   <tbody>
+    <tr><td><span class="flap" data-t="МСП"></span></td><td><span class="flap w" data-t="ПРОМЫШЛЕННОСТЬ"></span></td><td><span class="flap w" data-t="МОСКВА"></span></td><td><span class="st only-open">Приём</span><span class="st off only-closed">Закрыт</span></td></tr>
+    <tr><td><span class="flap" data-t="МСП"></span></td><td><span class="flap w" data-t="АПК"></span></td><td><span class="flap w" data-t="МОСКВА"></span></td><td><span class="st only-open">Приём</span><span class="st off only-closed">Закрыт</span></td></tr>
+    <tr><td><span class="flap" data-t="МСП"></span></td><td><span class="flap w" data-t="HORECA"></span></td><td><span class="flap w" data-t="МОСКВА"></span></td><td><span class="st only-open">Приём</span><span class="st off only-closed">Закрыт</span></td></tr>
+    <tr><td><span class="flap" data-t="ЭКСПОРТ"></span></td><td><span class="flap w" data-t="УСЛУГИ"></span></td><td><span class="flap w" data-t="МОСКВА"></span></td><td><span class="st only-open">Приём</span><span class="st off only-closed">Закрыт</span></td></tr>
+    <tr><td><span class="flap" data-t="СЕМЬЯ"></span></td><td><span class="flap w" data-t="ЛЮБАЯ"></span></td><td><span class="flap w" data-t="МОСКВА"></span></td><td><span class="st only-open">Приём</span><span class="st off only-closed">Закрыт</span></td></tr>
+   </tbody>
+  </table>
+ </div>
+ <div class="foot">
+  <a class="btn only-open" href="#">Подать заявку</a><a class="btn line only-open" href="#">Все 13 номинаций</a>
+  <a class="btn only-closed" href="#">Победители 2025</a><a class="btn line only-closed" href="#">Новости</a>
+  <p>Отправление: 15 января · Посадка закрывается: 15 марта · Прибытие: апрель</p>
+ </div>
+</section>
+</main>
+<script>
+const A='АБВГДЕЖЗИКЛМНОПРСТУФХЦЧШЭЮЯ0123456789';
+document.querySelectorAll('.flap').forEach((el,r)=>{
+  const t=el.dataset.t;el.setAttribute('aria-label',t);
+  const cells=[...t].map(()=>{const i=document.createElement('i');i.setAttribute('aria-hidden','true');el.append(i);return i});
+  cells.forEach((c,k)=>{let n=0;const stop=6+k*2+r*3;
+    if(matchMedia('(prefers-reduced-motion: reduce)').matches){c.textContent=t[k];return}
+    const tick=()=>{c.textContent=n>=stop?t[k]:A[Math.random()*A.length|0];if(n++<stop)setTimeout(tick,45)};tick()});
+});
+const ck=document.getElementById('clock');const upd=()=>ck.textContent=new Date().toLocaleTimeString('ru-RU',{hour:'2-digit',minute:'2-digit'});upd();setInterval(upd,15e3);
+</script>
+</body>
+</html>

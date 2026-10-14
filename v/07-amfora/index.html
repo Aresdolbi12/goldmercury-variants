@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>07 Амфора — «Золотой Меркурий»</title>
+<link rel="stylesheet" href="../../assets/base.css">
+<script src="../../assets/season.js"></script>
+<style>
+:root{--clay:#f6eb55;--glaze:#14110a;--slip:#8a3b1c;--paper:#fffbe0}
+body{background:var(--clay);color:var(--glaze);font:400 17px/1.55 Onest,sans-serif}
+::selection{background:var(--glaze);color:var(--clay)}
+.vase{min-height:100svh;display:grid;grid-template-rows:auto 34px 1fr 34px auto}
+.nav{display:flex;align-items:center;gap:34px;padding:16px clamp(18px,4vw,60px);background:var(--glaze);color:var(--clay)}
+.nav img{height:30px;width:auto}
+.nav ul{display:flex;gap:26px;list-style:none;margin:0 auto 0 0;padding:0;font-size:15px}
+.nav ul a{text-decoration:none;color:var(--paper);opacity:.8}.nav ul a:hover{opacity:1}
+.btn{display:inline-flex;align-items:center;padding:16px 30px;background:var(--glaze);color:var(--clay);font:600 16px/1 Onest;text-decoration:none;border-radius:999px;transition:transform .25s cubic-bezier(.16,1,.3,1)}
+.btn:hover{transform:translateY(-2px)}
+.btn.line{background:none;color:var(--glaze);box-shadow:inset 0 0 0 2px var(--glaze)}
+.nav .btn{background:var(--clay);color:var(--glaze);padding:11px 20px;font-size:15px;white-space:nowrap}
+.nav .btn.line{background:none;color:var(--clay);box-shadow:inset 0 0 0 1px var(--clay)}
+/* meander and ray bands, the fixed borders of a black-figure vase */
+.meander{background:var(--glaze) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='34' viewBox='0 0 34 34'%3E%3Cpath d='M3 31V3h28v22H11V11h12v8' fill='none' stroke='%23f6eb55' stroke-width='3'/%3E%3C/svg%3E") 0 0/34px 34px repeat-x;animation:run 30s linear infinite}
+.rays{background:var(--clay) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='34'%3E%3Cpath d='M0 34L14 0l14 34z' fill='%2314110a'/%3E%3C/svg%3E") 0 0/28px 34px repeat-x}
+@keyframes run{to{background-position:340px 0}}
+.frieze{position:relative;display:grid;grid-template-columns:1fr minmax(260px,.8fr);align-items:center;gap:20px;padding:20px clamp(18px,4vw,60px);overflow:hidden}
+h1{font:400 clamp(54px,8.4vw,150px)/.88 Forum,serif;letter-spacing:.01em;margin:0 0 24px;text-transform:uppercase}
+.lead{font-size:clamp(17px,1.35vw,20px);max-width:40ch;margin:0 0 34px}
+.row{display:flex;gap:10px;flex-wrap:wrap}
+.figure{position:relative;justify-self:center;width:min(100%,520px)}
+.figure img{width:100%;height:auto;mix-blend-mode:multiply;filter:contrast(1.4) saturate(1.1)}
+.figure figcaption{font:400 15px/1.3 Forum;text-transform:uppercase;letter-spacing:.14em;text-align:center;margin-top:6px}
+.base{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;padding:18px clamp(18px,4vw,60px);background:var(--glaze);color:var(--paper);font-size:15px}
+.base b{color:var(--clay);font-weight:600}
+@media (max-width:900px){.nav ul{display:none}.frieze{grid-template-columns:1fr}.figure{width:72%;order:-1}}
+</style>
+</head>
+<body>
+<main class="vase">
+ <header class="nav">
+  <img src="../../assets/tpp-logo-white.png" alt="ТПП Краснодарского края">
+  <ul><li><a href="#">О конкурсе</a></li><li><a href="#">Номинации</a></li><li><a href="#">Этапы</a></li><li><a href="#">Новости</a></li><li><a href="#">Контакты</a></li></ul>
+  <a class="btn only-open" href="#">Подать заявку</a><a class="btn line only-closed" href="#">Итоги 2025</a>
+ </header>
+ <div class="meander" aria-hidden="true"></div>
+ <section class="frieze">
+  <div>
+   <h1>Золотой Меркурий</h1>
+   <p class="lead">Меркурий — покровитель торговли и предпринимателей. Его именем названа национальная премия в области предпринимательской деятельности; её региональный этап на Кубани проводит ТПП Краснодарского края.</p>
+   <div class="row only-open"><a class="btn" href="#">Подать заявку до 15 марта</a><a class="btn line" href="#">13 номинаций</a></div>
+   <div class="row only-closed"><a class="btn" href="#">Победители 2025</a><a class="btn line" href="#">Церемония 17 апреля</a></div>
+  </div>
+  <figure class="figure"><img src="../../assets/medal.png" alt="Меркурий с кадуцеем — символ премии"><figcaption>Mercurius</figcaption></figure>
+ </section>
+ <div class="rays" aria-hidden="true"></div>
+ <footer class="base">
+  <span class="only-open">Приём заявок: <b>15 января — 15 марта</b> · осталось <b data-days></b> дн.</span>
+  <span class="only-closed">По итогам 2025 года: <b>187 заявок</b> — рекорд</span>
+  <span>Участие <b>бесплатное</b> · победители — на федеральный этап</span>
+ </footer>
+</main>
+</body>
+</html>

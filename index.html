@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Каталог вариантов — «Золотой Меркурий»</title>
+<link rel="stylesheet" href="assets/base.css">
+<style>
+:root{--bg:#121211;--card:#1b1b19;--y:#f6eb55;--paper:#efeee8;--dim:#8f8e86;--line:#2c2c29}
+body{background:var(--bg);color:var(--paper);font:400 16px/1.5 Onest,sans-serif}
+::selection{background:var(--y);color:var(--bg)}
+header{position:sticky;top:0;z-index:5;display:flex;align-items:center;gap:24px;flex-wrap:wrap;padding:18px clamp(16px,3vw,44px);background:rgba(18,18,17,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+h1{font:700 20px/1.2 Onest;margin:0 auto 0 0;letter-spacing:-.01em}
+h1 small{display:block;font-weight:400;font-size:14px;color:var(--dim)}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:3px}
+.seg button{border:0;background:none;padding:8px 16px;border-radius:999px;cursor:pointer;font-size:14px;color:var(--dim)}
+.seg button[aria-pressed=true]{background:var(--y);color:var(--bg);font-weight:600}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,520px),1fr));gap:28px;padding:28px clamp(16px,3vw,44px) 60px}
+.card{background:var(--card);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+.shots{position:relative;display:block;aspect-ratio:1440/900;background:#000}
+.shots .d{width:100%;height:100%;object-fit:cover;object-position:top}
+.shots .m{position:absolute;right:12px;bottom:12px;width:20%;aspect-ratio:390/844;object-fit:cover;object-position:top;border-radius:10px;border:3px solid #000;box-shadow:0 10px 30px rgba(0,0,0,.6)}
+.shots:hover .d{filter:brightness(1.08)}
+.meta{padding:16px 18px 18px;display:grid;gap:6px}
+.meta h2{margin:0;font:700 18px/1.2 Onest;display:flex;gap:10px;align-items:baseline}
+.meta h2 span{color:var(--dim);font-weight:500;font-size:14px;font-variant-numeric:tabular-nums}
+.meta p{margin:0;color:var(--dim);font-size:15px}
+.meta .f{font-size:13px}
+.links{display:flex;gap:16px;margin-top:6px;font-size:15px}
+.links a{color:var(--y);text-underline-offset:4px}
+footer{padding:0 clamp(16px,3vw,44px) 40px;color:var(--dim);font-size:14px}
+</style>
+</head>
+<body>
+<header>
+ <h1>«Золотой Меркурий» — варианты первого экрана<small>Редизайн goldmercury93.ru · рабочий каталог, не для публикации</small></h1>
+ <div class="seg" role="group" aria-label="Сезон">
+  <button aria-pressed="true" data-s="open">Приём открыт</button><button aria-pressed="false" data-s="closed">Вне сезона</button>
+ </div>
+</header>
+<main class="grid" id="grid"></main>
+<footer>Фото — с церемоний регионального этапа (архив новостей сайта). Число дней считается до ближайшего 15 марта. Тексты взяты с текущего сайта; слоганы — черновые.</footer>
+<script>
+let season='open',list=[];
+const esc=s=>s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function render(){
+  const sfx=season==='closed'?'-closed':'',q=season==='closed'?'?s=closed':'';
+  document.getElementById('grid').innerHTML=list.map(v=>`<article class="card">
+   <a class="shots" href="v/${v.slug}/${q}" aria-label="Открыть вариант ${esc(v.name)}"><img class="d" loading="lazy" src="shots/${v.slug}-desk${sfx}.jpg" alt=""><img class="m" loading="lazy" src="shots/${v.slug}-mob${sfx}.jpg" alt=""></a>
+   <div class="meta"><h2><span>${v.slug.slice(0,2)}</span>${esc(v.name)}</h2><p>${esc(v.idea)}</p><p class="f">Шрифты: ${esc(v.fonts)}</p>
+   <div class="links"><a href="v/${v.slug}/">Открыть</a><a href="v/${v.slug}/?s=closed">Вне сезона</a></div></div></article>`).join('');
+}
+document.querySelectorAll('.seg button').forEach(b=>b.onclick=()=>{season=b.dataset.s;document.querySelectorAll('.seg button').forEach(x=>x.setAttribute('aria-pressed',x===b));render()});
+fetch('variants.json').then(r=>r.json()).then(j=>{list=j;render()});
+</script>
+</body>
+</html>

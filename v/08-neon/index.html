@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>08 Неон — «Золотой Меркурий»</title>
+<link rel="stylesheet" href="../../assets/base.css">
+<script src="../../assets/season.js"></script>
+<style>
+:root{--wall:#0b0a0d;--brick:#141218;--y:#f6eb55;--glow:rgba(246,235,85,.55);--paper:#eeeae0;--dim:#8d8996;--red:#ff5a4e}
+body{background:var(--wall);color:var(--paper);font:400 17px/1.55 Onest,sans-serif}
+::selection{background:var(--y);color:var(--wall)}
+.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;overflow:hidden;background:radial-gradient(ellipse 60% 50% at 50% 42%,rgba(246,235,85,.10),transparent 70%),repeating-linear-gradient(0deg,var(--wall) 0 38px,var(--brick) 38px 40px)}
+.nav{position:relative;z-index:2;display:flex;align-items:center;gap:34px;padding:24px clamp(18px,4vw,60px)}
+.nav img{height:32px;width:auto}
+.nav ul{display:flex;gap:26px;list-style:none;margin:0 auto 0 0;padding:0;font-size:15px}
+.nav ul a{text-decoration:none;opacity:.75}.nav ul a:hover{opacity:1}
+.btn{display:inline-flex;align-items:center;padding:16px 30px;background:var(--y);color:var(--wall);font:600 16px/1 Onest;text-decoration:none;border-radius:999px;box-shadow:0 0 30px -4px var(--glow);transition:box-shadow .3s,transform .25s cubic-bezier(.16,1,.3,1)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 0 50px 0 var(--glow)}
+.btn.line{background:none;color:var(--paper);box-shadow:inset 0 0 0 1px rgba(238,234,224,.35)}
+.nav .btn{padding:12px 20px;font-size:15px;white-space:nowrap}
+.sign{position:relative;z-index:2;margin:auto;text-align:center;padding:20px}
+/* gas-discharge glow: white-hot core, coloured bloom */
+.tube{font:400 clamp(70px,12vw,210px)/1 'Marck Script',cursive;color:#fffbe0;margin:0;text-shadow:0 0 4px #fff7b0,0 0 12px var(--y),0 0 34px var(--y),0 0 80px var(--glow),0 0 140px rgba(246,235,85,.35);animation:ignite 1.6s steps(1) both}
+.tube span{display:block;margin-top:-.18em}
+@keyframes ignite{0%{opacity:.15}8%{opacity:1}12%{opacity:.3}20%{opacity:1}26%{opacity:.5}30%,100%{opacity:1}}
+.state{display:inline-block;margin:26px 0 0;font:700 clamp(18px,2vw,26px)/1 Onest;letter-spacing:.3em;padding:12px 16px 12px 22px;border-radius:8px}
+.state.on{color:#ffe7e4;border:2px solid var(--red);text-shadow:0 0 8px var(--red),0 0 22px var(--red);box-shadow:0 0 18px rgba(255,90,78,.5),inset 0 0 14px rgba(255,90,78,.35);animation:hum 4s ease-in-out infinite}
+.state.off{color:#4a4650;border:2px solid #2f2c35}
+@keyframes hum{50%{opacity:.86}}
+.lead{max-width:46ch;margin:26px auto 30px;color:var(--dim);font-size:clamp(16px,1.3vw,19px)}
+.lead b{color:var(--paper);font-weight:500}
+.row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+@media (max-width:900px){.nav ul{display:none}}
+</style>
+</head>
+<body>
+<main>
+<section class="hero">
+ <header class="nav">
+  <img src="../../assets/tpp-logo-white.png" alt="ТПП Краснодарского края">
+  <ul><li><a href="#">О конкурсе</a></li><li><a href="#">Номинации</a></li><li><a href="#">Этапы</a></li><li><a href="#">Новости</a></li><li><a href="#">Контакты</a></li></ul>
+  <a class="btn only-open" href="#">Подать заявку</a><a class="btn line only-closed" href="#">Итоги 2025</a>
+ </header>
+ <div class="sign">
+  <h1 class="tube">Золотой<span>Меркурий</span></h1>
+  <p class="state on only-open" aria-label="Приём заявок открыт">ПРИЁМ ОТКРЫТ</p>
+  <p class="state off only-closed" aria-label="Приём заявок закрыт">ПРИЁМ ЗАКРЫТ</p>
+  <p class="lead only-open">Региональный этап национальной премии в области предпринимательской деятельности. <b>До 15 марта</b>, осталось <b data-days></b> дн. Участие бесплатное.</p>
+  <p class="lead only-closed">Итоги 2025 года подведены: <b>187 заявок</b>, церемония прошла <b>17 апреля</b> в Краснодаре. Следующий приём — с 15 января.</p>
+  <div class="row only-open"><a class="btn" href="#">Подать заявку</a><a class="btn line" href="#">Номинации</a></div>
+  <div class="row only-closed"><a class="btn" href="#">Победители 2025</a><a class="btn line" href="#">Фото церемонии</a></div>
+ </div>
+</section>
+</main>
+</body>
+</html>

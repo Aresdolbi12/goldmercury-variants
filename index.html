@@ -29,6 +29,7 @@ h1 small{display:block;font-weight:400;font-size:14px;color:var(--dim)}
 .meta .f{font-size:13px}
 .links{display:flex;gap:16px;margin-top:6px;font-size:15px}
 .links a{color:var(--y);text-underline-offset:4px}
+main .batch{grid-column:1/-1;margin:14px 0 -8px;font:700 15px/1 Onest;color:var(--dim);letter-spacing:.04em;text-transform:uppercase}
 footer{padding:0 clamp(16px,3vw,44px) 40px;color:var(--dim);font-size:14px}
 </style>
 </head>
@@ -46,7 +47,7 @@ let season='open',list=[];
 const esc=s=>s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 function render(){
   const sfx=season==='closed'?'-closed':'',q=season==='closed'?'?s=closed':'';
-  document.getElementById('grid').innerHTML=list.map(v=>`<article class="card">
+  document.getElementById('grid').innerHTML=list.map((v,i)=>(i==0||list[i-1].batch!==v.batch?`<h2 class="batch">Партия ${v.batch}</h2>`:'')+`<article class="card">
    <a class="shots" href="v/${v.slug}/${q}" aria-label="Открыть вариант ${esc(v.name)}"><img class="d" loading="lazy" src="shots/${v.slug}-desk${sfx}.jpg" alt=""><img class="m" loading="lazy" src="shots/${v.slug}-mob${sfx}.jpg" alt=""></a>
    <div class="meta"><h2><span>${v.slug.slice(0,2)}</span>${esc(v.name)}</h2><p>${esc(v.idea)}</p><p class="f">Шрифты: ${esc(v.fonts)}</p>
    <div class="links"><a href="v/${v.slug}/">Открыть</a><a href="v/${v.slug}/?s=closed">Вне сезона</a></div></div></article>`).join('');

@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>15 Хроника — «Золотой Меркурий»</title>
+<link rel="stylesheet" href="../../assets/base.css">
+<script src="../../assets/season.js"></script>
+<style>
+:root{--k:#0e0e0d;--y:#f6eb55;--paper:#f1f0ea;--dim:#a09f96;--line:rgba(241,240,234,.18)}
+body{background:var(--k);color:var(--paper);font:400 17px/1.5 Onest,sans-serif}
+::selection{background:var(--y);color:var(--k)}
+.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;overflow:hidden}
+.bg{position:absolute;inset:0;background:linear-gradient(90deg,rgba(14,14,13,.96) 0,rgba(14,14,13,.75) 45%,rgba(14,14,13,.55)),linear-gradient(0deg,var(--k) 0,transparent 40%),url(../../assets/hall.jpg) center/cover;filter:grayscale(.6)}
+.nav{position:relative;z-index:2;display:flex;align-items:center;gap:34px;padding:22px clamp(18px,4vw,60px)}
+.nav img{height:32px;width:auto}
+.nav ul{display:flex;gap:26px;list-style:none;margin:0 auto 0 0;padding:0;font-size:15px}
+.nav ul a{text-decoration:none;opacity:.75}.nav ul a:hover{opacity:1}
+.btn{display:inline-flex;align-items:center;padding:16px 28px;background:var(--y);color:var(--k);font:600 16px/1 Onest;text-decoration:none;border-radius:999px;transition:transform .25s cubic-bezier(.16,1,.3,1)}
+.btn:hover{transform:translateY(-2px)}
+.btn.line{background:none;color:var(--paper);box-shadow:inset 0 0 0 1px var(--line)}
+.nav .btn{padding:12px 20px;font-size:15px;white-space:nowrap}
+.head{position:relative;z-index:2;padding:clamp(20px,4vw,60px) clamp(18px,4vw,60px) 30px;max-width:900px}
+h1{font:600 clamp(48px,6.4vw,104px)/.92 Oswald,sans-serif;text-transform:uppercase;letter-spacing:-.01em;margin:0 0 22px}
+h1 span{color:var(--y)}
+.head p{margin:0;color:var(--dim);max-width:46ch;font-size:clamp(17px,1.3vw,19px)}
+/* the chronicle: one rail of real years, the last slot is left open for the visitor */
+.track{position:relative;z-index:2;margin-top:auto;display:flex;gap:0;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;border-top:1px solid var(--line)}
+.track::-webkit-scrollbar{display:none}
+.yr{flex:0 0 clamp(220px,19vw,300px);scroll-snap-align:start;padding:22px 24px 34px;border-right:1px solid var(--line);position:relative}
+.yr::before{content:"";position:absolute;top:-6px;left:24px;width:11px;height:11px;border-radius:50%;background:var(--paper)}
+.yr b{display:block;font:600 clamp(44px,4.4vw,68px)/1 Oswald;color:var(--paper);margin:6px 0 10px;font-variant-numeric:tabular-nums}
+.yr p{margin:0;color:var(--dim);font-size:15px}
+.yr.now::before{background:var(--y);box-shadow:0 0 0 6px rgba(246,235,85,.2)}
+.yr.now b{color:var(--y)}
+.yr.you{background:var(--y);color:var(--k)}
+.yr.you::before{background:var(--k)}
+.yr.you b{color:var(--k)}.yr.you p{color:#3c3913}
+.yr.you a{display:inline-block;margin-top:14px;font-weight:700;color:var(--k);text-underline-offset:4px}
+@media (max-width:900px){.nav ul{display:none}}
+</style>
+</head>
+<body>
+<main class="hero">
+ <div class="bg" role="img" aria-label="Зал церемонии награждения"></div>
+ <header class="nav">
+  <img src="../../assets/tpp-logo-white.png" alt="ТПП Краснодарского края">
+  <ul><li><a href="#">О конкурсе</a></li><li><a href="#">Номинации</a></li><li><a href="#">Этапы</a></li><li><a href="#">Новости</a></li><li><a href="#">Контакты</a></li></ul>
+  <a class="btn only-open" href="#">Подать заявку</a><a class="btn line only-closed" href="#">Итоги 2025</a>
+ </header>
+ <section class="head">
+  <h1>Хроника <span>«Золотого Меркурия»</span> на Кубани</h1>
+  <p class="only-open">Региональный этап национальной премии проводит ТПП Краснодарского края. Следующая строка хроники — ваша: приём заявок до 15 марта, осталось <b data-days></b> дн.</p>
+  <p class="only-closed">Региональный этап национальной премии проводит ТПП Краснодарского края. Итоги 2025 года подведены 17 апреля 2026; новый приём — с 15 января.</p>
+ </section>
+ <div class="track" tabindex="0" aria-label="Хроника по годам">
+  <div class="yr"><b>2021</b><p>8 апреля в Краснодаре наградили 30 лауреатов и победителей</p></div>
+  <div class="yr"><b>2022</b><p>Конкурс в крае прошёл в шестой раз; в Москве бизнес Кубани получил две награды</p></div>
+  <div class="yr"><b>2023</b><p>Церемония регионального этапа 7 апреля</p></div>
+  <div class="yr"><b>2024</b><p>Восьмой конкурс, около 150 заявок; церемония 12 апреля</p></div>
+  <div class="yr"><b>2025</b><p>Церемония 24 апреля, 12 номинаций</p></div>
+  <div class="yr now"><b>2026</b><p>187 заявок — рекорд; победителей наградили 17 апреля</p></div>
+  <div class="yr you only-open"><b>2027</b><p>Ваша компания среди лауреатов</p><a href="#">Подать заявку</a></div>
+  <div class="yr you only-closed"><b>2027</b><p>Приём заявок откроется 15 января</p><a href="#">Условия участия</a></div>
+ </div>
+</main>
+</body>
+</html>

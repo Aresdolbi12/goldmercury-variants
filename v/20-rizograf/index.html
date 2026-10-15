@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>20 Ризограф — «Золотой Меркурий»</title>
+<link rel="stylesheet" href="../../assets/base.css">
+<script src="../../assets/season.js"></script>
+<style>
+:root{--paper:#f4f1e6;--y:#f6eb55;--k:#161616}
+body{background:var(--paper);color:var(--k);font:400 17px/1.5 Onest,sans-serif}
+::selection{background:var(--y);color:var(--k)}
+/* two-drum risograph print: yellow and black layers slightly out of register, paper grain on top */
+.sheet{position:relative;min-height:100svh;overflow:hidden;display:grid;grid-template-columns:1.1fr 1fr;grid-template-rows:auto 1fr auto}
+.grain{position:absolute;inset:0;z-index:5;pointer-events:none;opacity:.22;mix-blend-mode:multiply;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .9 0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E")}
+.nav{grid-column:1/-1;position:relative;z-index:3;display:flex;align-items:center;gap:30px;padding:20px clamp(18px,4vw,56px)}
+.nav b{font:400 14px/1.2 'Rubik Mono One',sans-serif}
+.nav ul{display:flex;gap:22px;list-style:none;margin:0 auto 0 0;padding:0;font-size:15px}
+.nav ul a{text-decoration:none}.nav ul a:hover{text-decoration:underline;text-decoration-thickness:2px}
+.btn{display:inline-flex;align-items:center;padding:16px 26px;background:var(--k);color:var(--y);font:400 15px/1 'Rubik Mono One';text-decoration:none;transition:transform .2s;box-shadow:4px 4px 0 var(--y)}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--y)}
+.btn.line{background:var(--paper);color:var(--k);box-shadow:inset 0 0 0 2px var(--k),4px 4px 0 var(--y)}
+.nav .btn{padding:11px 16px;font-size:13px;white-space:nowrap}
+.yblock{position:absolute;z-index:0;right:-6vw;top:8%;width:58vw;height:96%;background:var(--y);background-image:radial-gradient(rgba(22,22,22,.0) 0 0);border-radius:0 0 0 46% / 0 0 0 30%;mix-blend-mode:multiply}
+.yblock::after{content:"";position:absolute;inset:0;background:radial-gradient(circle,var(--paper) 1.4px,transparent 1.6px) 0 0/9px 9px;opacity:.55;-webkit-mask:linear-gradient(200deg,transparent 40%,#000);mask:linear-gradient(200deg,transparent 40%,#000)}
+.merc{position:relative;z-index:2;grid-row:2/4;grid-column:2;align-self:end;justify-self:center;width:min(100%,560px);mix-blend-mode:multiply}
+.merc img{width:100%;height:auto;filter:grayscale(1) contrast(3) brightness(1.1);translate:5px -4px}
+.copy{position:relative;z-index:3;grid-column:1;padding:20px clamp(18px,4vw,56px) 30px;align-self:center}
+h1{font:400 clamp(44px,5.8vw,96px)/.95 'Rubik Mono One',sans-serif;margin:0 0 26px;letter-spacing:-.04em;text-shadow:4px 3px 0 var(--y)}
+.copy p{max-width:40ch;margin:0 0 30px;font-size:clamp(17px,1.3vw,19px)}
+.row{display:flex;gap:14px;flex-wrap:wrap}
+.sticker{position:absolute;z-index:4;right:clamp(16px,8vw,140px);top:22%;width:150px;aspect-ratio:1;border-radius:50%;background:var(--k);color:var(--y);display:grid;place-items:center;text-align:center;font:400 13px/1.2 'Rubik Mono One';rotate:12deg;padding:16px}
+.sticker b{display:block;font-size:30px;margin-bottom:4px}
+@media (max-width:900px){.nav ul{display:none}.sheet{grid-template-columns:1fr}.merc{grid-column:1;grid-row:auto;width:80%}.yblock{width:100vw;right:-20vw;top:45%}.sticker{top:auto;bottom:24px;width:120px}}
+</style>
+</head>
+<body>
+<main class="sheet">
+ <div class="grain" aria-hidden="true"></div>
+ <div class="yblock" aria-hidden="true"></div>
+ <header class="nav">
+  <b>ТПП КК</b>
+  <ul><li><a href="#">О конкурсе</a></li><li><a href="#">Номинации</a></li><li><a href="#">Этапы</a></li><li><a href="#">Новости</a></li><li><a href="#">Контакты</a></li></ul>
+  <a class="btn only-open" href="#">Подать заявку</a><a class="btn line only-closed" href="#">Итоги 2025</a>
+ </header>
+ <section class="copy">
+  <h1>Золотой Меркурий</h1>
+  <p class="only-open">Региональный этап национальной премии в области предпринимательской деятельности. Для МСП, экспортёров и семейного бизнеса Краснодарского края. Приём заявок до 15 марта.</p>
+  <p class="only-closed">Региональный этап по итогам 2025 года завершён: 187 заявок, церемония 17 апреля в Краснодаре. Следующий приём — с 15 января.</p>
+  <div class="row only-open"><a class="btn" href="#">Подать заявку</a><a class="btn line" href="#">13 номинаций</a></div>
+  <div class="row only-closed"><a class="btn" href="#">Победители</a><a class="btn line" href="#">Новости</a></div>
+ </section>
+ <figure class="merc" aria-hidden="true"><img src="../../assets/medal.png" alt=""></figure>
+ <p class="sticker only-open"><span><b data-days></b>дней до конца приёма</span></p>
+ <p class="sticker only-closed"><span><b>187</b>заявок рекорд</span></p>
+</main>
+</body>
+</html>

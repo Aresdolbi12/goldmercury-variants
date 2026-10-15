@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>16 Награда — «Золотой Меркурий»</title>
+<link rel="stylesheet" href="../../assets/base.css">
+<script src="../../assets/season.js"></script>
+<style>
+:root{--walnut:#1c120c;--wood:#3a2618;--silver:#d9d6cf;--y:#f6eb55;--dim:#b3a594}
+body{background:var(--walnut);color:var(--silver);font:400 17px/1.6 Onest,sans-serif}
+::selection{background:var(--y);color:var(--walnut)}
+.hero{position:relative;min-height:100svh;display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);overflow:hidden}
+/* the real award: silver relief on a walnut plaque, shown at hand scale */
+.plate{position:relative;order:2;background:url(../../assets/award-plaque.jpg) 50% 40%/cover}
+.plate::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--walnut) 0,rgba(28,18,12,0) 30%)}
+.plate figcaption{position:absolute;right:24px;bottom:22px;font-size:13px;color:#fff;opacity:.8;text-shadow:0 1px 8px #000}
+.side{position:relative;z-index:2;display:flex;flex-direction:column;padding:0 clamp(18px,4vw,60px) 40px}
+.nav{display:flex;align-items:center;gap:30px;padding:22px 0;flex-wrap:wrap}
+.nav img{height:30px;width:auto}
+.nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0;font-size:15px}
+.nav ul a{text-decoration:none;color:var(--dim)}.nav ul a:hover{color:var(--silver)}
+.top{position:absolute;z-index:3;top:20px;right:clamp(18px,4vw,60px)}
+.btn{display:inline-flex;align-items:center;padding:16px 28px;background:var(--y);color:var(--walnut);font:600 16px/1 Onest;text-decoration:none;border-radius:3px;transition:transform .25s cubic-bezier(.16,1,.3,1)}
+.btn:hover{transform:translateY(-2px)}
+.btn.line{background:none;color:var(--silver);box-shadow:inset 0 0 0 1px rgba(217,214,207,.35)}
+.top .btn{padding:12px 20px;font-size:15px;white-space:nowrap;background:rgba(28,18,12,.7);color:var(--silver);box-shadow:inset 0 0 0 1px rgba(217,214,207,.5);backdrop-filter:blur(8px)}
+.copy{margin:auto 0}
+h1{font:400 clamp(46px,5.6vw,96px)/1 Spectral,serif;letter-spacing:-.02em;margin:0 0 26px;color:#f4f1ea}
+h1 i{font-style:normal;color:var(--y)}
+.lead{color:var(--dim);max-width:40ch;margin:0 0 34px;font-size:clamp(17px,1.3vw,19px)}
+.lead b{color:var(--silver);font-weight:500}
+.row{display:flex;gap:12px;flex-wrap:wrap}
+.spec{display:grid;grid-template-columns:repeat(3,auto);justify-content:start;gap:8px 36px;margin-top:46px;padding-top:20px;border-top:1px solid var(--wood);font-size:14px;color:var(--dim)}
+.spec b{display:block;font:400 24px/1.1 Spectral;color:var(--silver)}
+@media (max-width:900px){.hero{grid-template-columns:1fr}.plate{order:0;min-height:52vh}.plate::before{background:linear-gradient(0deg,var(--walnut) 0,transparent 40%)}.nav ul{display:none}.nav{padding-top:14px}.plate figcaption{display:none}}
+</style>
+</head>
+<body>
+<main class="hero">
+ <figure class="plate" role="img" aria-label="Награда «Золотой Меркурий»: серебряный рельеф на деревянной плакетке"><figcaption>Награда регионального этапа</figcaption></figure>
+ <div class="top"><a class="btn only-open" href="#">Подать заявку</a><a class="btn only-closed" href="#">Итоги 2025</a></div>
+ <div class="side">
+  <header class="nav">
+   <img src="../../assets/tpp-logo-white.png" alt="ТПП Краснодарского края">
+   <ul><li><a href="#">О конкурсе</a></li><li><a href="#">Номинации</a></li><li><a href="#">Этапы</a></li><li><a href="#">Новости</a></li></ul>
+  </header>
+  <div class="copy">
+   <h1>Её вручают <i>лучшим</i> предприятиям Кубани</h1>
+   <p class="lead only-open">Диплом и награда «Золотой Меркурий» — победителям регионального этапа национальной премии в области предпринимательской деятельности. <b>Приём заявок до 15 марта</b>, осталось <b data-days></b> дн.</p>
+   <p class="lead only-closed">По итогам 2025 года награды вручили 17 апреля в Краснодаре. В конкурсе — <b>187 заявок</b>, рекорд регионального этапа.</p>
+   <div class="row only-open"><a class="btn" href="#">Подать заявку</a><a class="btn line" href="#">Кто может участвовать</a></div>
+   <div class="row only-closed"><a class="btn" href="#">Победители 2025</a><a class="btn line" href="#">Фото церемонии</a></div>
+   <div class="spec"><div><b>13</b>номинаций</div><div><b>0 ₽</b>участие</div><div><b>2 этапа</b>край и федерация</div></div>
+  </div>
+ </div>
+</main>
+</body>
+</html>

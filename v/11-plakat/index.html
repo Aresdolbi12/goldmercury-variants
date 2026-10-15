@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>11 Плакат — «Золотой Меркурий»</title>
+<link rel="stylesheet" href="../../assets/base.css">
+<script src="../../assets/season.js"></script>
+<style>
+:root{--y:#f6eb55;--k:#0d0d0d}
+body{background:var(--y);color:var(--k);font:500 17px/1.45 Onest,sans-serif}
+::selection{background:var(--k);color:var(--y)}
+/* international typographic style: one huge figure on a strict 12-column grid */
+.poster{min-height:100svh;display:grid;grid-template-columns:repeat(12,1fr);grid-template-rows:auto 1fr auto;column-gap:16px;padding:0 clamp(16px,3vw,44px)}
+.nav{grid-column:1/-1;display:grid;grid-template-columns:subgrid;align-items:center;padding:22px 0;border-bottom:3px solid var(--k);font-size:15px}
+.nav .brand{grid-column:1/4;font-weight:800;letter-spacing:-.01em}
+.nav ul{grid-column:4/10;display:flex;gap:22px;list-style:none;margin:0;padding:0}
+.nav ul a{text-decoration:none}.nav ul a:hover{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px}
+.nav .cta{grid-column:10/-1;justify-self:end}
+.btn{display:inline-flex;align-items:center;gap:14px;padding:18px 26px;background:var(--k);color:var(--y);font:700 16px/1 Onest;text-decoration:none;transition:gap .3s cubic-bezier(.16,1,.3,1)}
+.btn:hover{gap:24px}
+.btn svg{width:18px;height:18px}
+.btn.line{background:none;color:var(--k);box-shadow:inset 0 0 0 3px var(--k)}
+.nav .btn{padding:12px 18px;font-size:15px;white-space:nowrap}
+.fig{grid-column:1/-1;align-self:center;margin:0;font:900 clamp(150px,47vw,720px)/.74 'Alumni Sans',sans-serif;letter-spacing:-.015em;white-space:nowrap;padding-top:.06em}
+.fig small{display:block;font:800 clamp(20px,2vw,30px)/1.1 Onest;letter-spacing:-.02em;margin:.3em 0 0}
+.cols{grid-column:1/-1;display:grid;grid-template-columns:subgrid;border-top:3px solid var(--k);padding:22px 0 30px;row-gap:20px}
+.cols h1{grid-column:1/5;font:800 clamp(24px,2.2vw,34px)/1.05 Onest;letter-spacing:-.02em;margin:0}
+.cols p{grid-column:5/9;margin:0;max-width:40ch}
+.cols .act{grid-column:9/-1;display:flex;gap:10px;justify-content:end;align-items:start;flex-wrap:wrap}
+@media (max-width:900px){.nav ul{display:none}.nav .brand{grid-column:1/8}.nav .cta{grid-column:8/-1}.cols h1,.cols p,.cols .act{grid-column:1/-1;justify-content:start}.fig{font-size:46vw}}
+</style>
+</head>
+<body>
+<main class="poster">
+ <header class="nav">
+  <span class="brand">ТПП Краснодарского края</span>
+  <ul><li><a href="#">О конкурсе</a></li><li><a href="#">Номинации</a></li><li><a href="#">Этапы</a></li><li><a href="#">Новости</a></li><li><a href="#">Контакты</a></li></ul>
+  <span class="cta"><a class="btn only-open" href="#">Подать заявку</a><a class="btn line only-closed" href="#">Итоги 2025</a></span>
+ </header>
+ <p class="fig only-open" aria-label="15 марта — последний день приёма заявок">15.03<small>последний день приёма</small></p>
+ <p class="fig only-closed" aria-label="187 заявок — рекорд">187<small>заявок — рекорд регионального этапа</small></p>
+ <div class="cols">
+  <h1>Региональный конкурс «Золотой Меркурий»</h1>
+  <p class="only-open">Национальная премия в области предпринимательской деятельности по итогам 2025 года. 13 номинаций для МСП, экспортёров и семейного бизнеса Кубани. Участие бесплатное. Осталось <b data-days></b> дн.</p>
+  <p class="only-closed">Приём заявок по итогам 2025 года закрыт. Победителей наградили 17 апреля в Краснодаре, их заявки ушли на федеральный этап. Новый приём — с 15 января.</p>
+  <div class="act only-open"><a class="btn" href="#">Подать заявку <svg viewBox="0 0 18 18" aria-hidden="true"><path d="M2 9h13M10 4l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2.4"/></svg></a></div>
+  <div class="act only-closed"><a class="btn" href="#">Победители <svg viewBox="0 0 18 18" aria-hidden="true"><path d="M2 9h13M10 4l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2.4"/></svg></a></div>
+ </div>
+</main>
+</body>
+</html>
